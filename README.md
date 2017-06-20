@@ -1,3 +1,4 @@
+[![MetaCPAN Release](https://badge.fury.io/pl/Mojolicious-Plugin-Text-Caml.svg)](https://metacpan.org/release/Mojolicious-Plugin-Text-Caml)
 # NAME
 
 Mojolicious::Plugin::Text::Caml - Mojolicious Plugin
@@ -21,7 +22,12 @@ Mojolicious::Plugin::Text::Caml - Mojolicious Plugin
 
 ## register
 
-    $plugin->register(Mojolicious->new);
+    plugin 'Text::Caml';
+
+    get '/inline' => sub {
+      my $c = shift;
+      $c->render(handler => 'caml', inline  => 'Hello, {{message}}!', message => 'Mustache');
+    };
 
 Register plugin in [Mojolicious](https://metacpan.org/pod/Mojolicious) application.
 

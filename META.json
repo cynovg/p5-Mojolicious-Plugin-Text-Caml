@@ -58,7 +58,7 @@
          "web" : "https://github.com/cynovg/Mojolicious-Plugin-Text-Caml"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_authority" : "cpan:CYNOVG",
    "x_contributors" : [
       "Novgorodcev Cyrill <cynovg@gmail.com>",
