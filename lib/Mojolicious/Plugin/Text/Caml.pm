@@ -1,10 +1,28 @@
 package Mojolicious::Plugin::Text::Caml;
 use Mojo::Base 'Mojolicious::Plugin';
 
+use Text::Caml;
+
 our $VERSION = '0.01';
 
 sub register {
-  my ($self, $app) = @_;
+  my ($self, $app, $args) = @_;
+
+    my $caml = Text::Caml->new($args);
+
+    $app->renderer->add_handler(caml => sub {
+        my ($renderer, $c, $output, $options) = @_;
+
+        if ($options->{template})
+        {
+            $caml->set_templates_path($renderer->paths->[0]);
+            $$output = $caml->render_file($options->{template}, $c->stash);
+        }
+
+        return 1;
+    });
+
+    return 1;
 }
 
 1;
