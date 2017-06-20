@@ -28,6 +28,15 @@ get '/data' => sub {
   );
 };
 
+get '/file' => sub {
+  my $c = shift;
+  $c->render(
+      'mustache',
+      handler => 'caml',
+      message => 'Mustache',
+  );
+};
+
 my $t = Test::Mojo->new;
 $t->get_ok('/')->status_is(200)->content_is('Hello Mojo!');
 $t->get_ok('/inline')->status_is(200)->content_is('Hello, Mustache!');
