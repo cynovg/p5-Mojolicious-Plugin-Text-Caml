@@ -1,7 +1,6 @@
 !Build/
 .last_cover_stats
 /META.yml
-/META.json
 /MYMETA.*
 *.o
 *.pm.tdy
@@ -35,3 +34,10 @@ inc/
 /*.zip
 
 .idea
+/Mojolicious-Plugin-Text-Caml-*
+/.build
+/_build_params
+/Build
+/Build.bat
+!META.json
+!LICENSE
