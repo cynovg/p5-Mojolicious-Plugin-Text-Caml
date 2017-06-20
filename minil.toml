@@ -1,0 +1,6 @@
+name = "Mojolicious-Plugin-Text-Caml"
+# badges = ["travis"]
+authority="cpan:CYNOVG"
+
+module_maker="ModuleBuildTiny"
+license="gpl_3"
