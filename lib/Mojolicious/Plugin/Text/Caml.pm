@@ -8,18 +8,24 @@ our $VERSION = '0.01';
 sub register {
   my ($self, $app, $args) = @_;
 
-    my $caml = Text::Caml->new($args);
+    $args //= {};
+    my $caml = Text::Caml->new(%$args);
 
     $app->renderer->add_handler(caml => sub {
         my ($renderer, $c, $output, $options) = @_;
 
-        if ($options->{template})
-        {
+        if ($options->{inline}) {
+            my $inline_template = $options->{inline};
+            $$output = $caml->render($inline_template, $c->stash);
+        }
+        elsif ($options->{template}) {
             $caml->set_templates_path($renderer->paths->[0]);
             $$output = $caml->render_file($options->{template}, $c->stash);
+        } else {
+            my $data_template = $renderer->get_data_template($options);
+            $$output = $caml->render($data_template, $c->stash) if $data_template;
         }
-
-        return 1;
+        return $$output ? 1 : 0;
     });
 
     return 1;
