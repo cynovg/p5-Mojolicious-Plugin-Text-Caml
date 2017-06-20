@@ -59,7 +59,12 @@ L<Mojolicious::Plugin> and implements the following new ones.
 
 =head2 register
 
-  $plugin->register(Mojolicious->new);
+    plugin 'Text::Caml';
+
+    get '/inline' => sub {
+      my $c = shift;
+      $c->render(handler => 'caml', inline  => 'Hello, {{message}}!', message => 'Mustache');
+    };
 
 Register plugin in L<Mojolicious> application.
 
