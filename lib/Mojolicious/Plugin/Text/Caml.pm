@@ -18,9 +18,9 @@ sub register {
             my $inline_template = $options->{inline};
             $$output = $caml->render($inline_template, $c->stash);
         }
-        elsif ($renderer->template_path($options)) {
+        elsif (my $template_name = $renderer->template_path($options)) {
             $caml->set_templates_path($renderer->paths->[0]);
-            $$output = $caml->render_file($options->{template}, $c->stash);
+            $$output = $caml->render_file($template_name, $c->stash);
         } else {
             my $data_template = $renderer->get_data_template($options);
             $$output = $caml->render($data_template, $c->stash) if $data_template;
