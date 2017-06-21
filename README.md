@@ -5,11 +5,12 @@ Mojolicious::Plugin::Text::Caml - Mojolicious Plugin
 
 # SYNOPSIS
 
-    # Mojolicious
-    $self->plugin('Text::Caml');
-
-    # Mojolicious::Lite
     plugin 'Text::Caml';
+
+    get '/inline' => sub {
+      my $c = shift;
+      $c->render(handler => 'caml', inline  => 'Hello, {{message}}!', message => 'Mustache');
+    };
 
 # DESCRIPTION
 
@@ -22,18 +23,17 @@ Mojolicious::Plugin::Text::Caml - Mojolicious Plugin
 
 ## register
 
-    plugin 'Text::Caml';
+    # Mojolicious
+    $self->plugin('Text::Caml');
 
-    get '/inline' => sub {
-      my $c = shift;
-      $c->render(handler => 'caml', inline  => 'Hello, {{message}}!', message => 'Mustache');
-    };
+    # Mojolicious::Lite
+    plugin 'Text::Caml';
 
 Register plugin in [Mojolicious](https://metacpan.org/pod/Mojolicious) application.
 
 # SEE ALSO
 
-[Mojolicious](https://metacpan.org/pod/Mojolicious), [Mojolicious::Guides](https://metacpan.org/pod/Mojolicious::Guides), [http://mojolicious.org](http://mojolicious.org).
+[Mojolicious](https://metacpan.org/pod/Mojolicious), [Mojolicious::Guides](https://metacpan.org/pod/Mojolicious::Guides), [http://mojolicious.org](http://mojolicious.org), [http://mustache.github.io](http://mustache.github.io), [Text::Caml](https://metacpan.org/pod/Text::Caml).
 
 ## AUTHOR
 
