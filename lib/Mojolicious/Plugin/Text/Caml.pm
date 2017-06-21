@@ -42,11 +42,12 @@ Mojolicious::Plugin::Text::Caml - Mojolicious Plugin
 
 =head1 SYNOPSIS
 
-  # Mojolicious
-  $self->plugin('Text::Caml');
-
-  # Mojolicious::Lite
   plugin 'Text::Caml';
+
+  get '/inline' => sub {
+    my $c = shift;
+    $c->render(handler => 'caml', inline  => 'Hello, {{message}}!', message => 'Mustache');
+  };
 
 =head1 DESCRIPTION
 
@@ -59,18 +60,17 @@ L<Mojolicious::Plugin> and implements the following new ones.
 
 =head2 register
 
-    plugin 'Text::Caml';
+  # Mojolicious
+  $self->plugin('Text::Caml');
 
-    get '/inline' => sub {
-      my $c = shift;
-      $c->render(handler => 'caml', inline  => 'Hello, {{message}}!', message => 'Mustache');
-    };
+  # Mojolicious::Lite
+  plugin 'Text::Caml';
 
 Register plugin in L<Mojolicious> application.
 
 =head1 SEE ALSO
 
-L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicious.org>.
+L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicious.org>, L<http://mustache.github.io>, L<Text::Caml>.
 
 =head2 AUTHOR
 
