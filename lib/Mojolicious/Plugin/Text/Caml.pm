@@ -8,7 +8,6 @@ our $VERSION = '0.04';
 sub register {
   my ($self, $app, $args) = @_;
 
-    $args //= {};
     my $caml = Text::Caml->new(%$args);
 
     $app->renderer->add_handler(caml => sub {
@@ -22,10 +21,10 @@ sub register {
             $caml->set_templates_path($renderer->paths->[0]);
             $$output = $caml->render_file($template_name, $c->stash);
         } else {
-            my $data_template = $renderer->get_data_template($options);
-            $$output = $caml->render($data_template, $c->stash) if $data_template;
+            my $data_template = $renderer->get_data_template($options) // '';
+            $$output = $caml->render($data_template, $c->stash);
         }
-        return $$output ? 1 : 0;
+        return !!$$output;
     });
 
     return 1;
