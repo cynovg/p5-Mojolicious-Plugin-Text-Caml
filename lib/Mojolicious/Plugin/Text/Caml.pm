@@ -6,26 +6,29 @@ use Text::Caml;
 our $VERSION = '0.04';
 
 sub register {
-  my ($self, $app, $args) = @_;
+    my ( $self, $app, $args ) = @_;
 
     my $caml = Text::Caml->new(%$args);
 
-    $app->renderer->add_handler(caml => sub {
-        my ($renderer, $c, $output, $options) = @_;
+    $app->renderer->add_handler(
+        caml => sub {
+            my ( $renderer, $c, $output, $options ) = @_;
 
-        if ($options->{inline}) {
-            my $inline_template = $options->{inline};
-            $$output = $caml->render($inline_template, $c->stash);
+            if ( $options->{inline} ) {
+                my $inline_template = $options->{inline};
+                $$output = $caml->render( $inline_template, $c->stash );
+            }
+            elsif ( my $template_name = $renderer->template_path($options) ) {
+                $caml->set_templates_path( $renderer->paths->[0] );
+                $$output = $caml->render_file( $template_name, $c->stash );
+            }
+            else {
+                my $data_template = $renderer->get_data_template($options) // '';
+                $$output = $caml->render( $data_template, $c->stash );
+            }
+            return !!$$output;
         }
-        elsif (my $template_name = $renderer->template_path($options)) {
-            $caml->set_templates_path($renderer->paths->[0]);
-            $$output = $caml->render_file($template_name, $c->stash);
-        } else {
-            my $data_template = $renderer->get_data_template($options) // '';
-            $$output = $caml->render($data_template, $c->stash);
-        }
-        return !!$$output;
-    });
+    );
 
     return 1;
 }
