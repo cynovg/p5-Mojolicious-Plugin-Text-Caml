@@ -41,3 +41,4 @@ inc/
 /Build.bat
 !META.json
 !LICENSE
+/.mailmap
