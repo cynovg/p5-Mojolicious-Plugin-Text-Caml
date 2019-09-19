@@ -1,4 +1,9 @@
+Revision history for Perl extension Mojolicious-Plugin-Text-Caml
+
 {{$NEXT}}
+
+0.05 2019-09-19T14:46:10Z
+  - move to gitlab
 
 0.04 2017-06-28T07:45:29Z
 
