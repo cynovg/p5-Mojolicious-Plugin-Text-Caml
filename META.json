@@ -42,7 +42,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Mojolicious" : "0",
+            "Mojolicious" : "6.33",
             "Text::Caml" : "0"
          }
       },
@@ -59,7 +59,7 @@
          "url" : "git://gitlab.com/cynovg/Mojolicious-Plugin-Text-Caml.git"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_authority" : "cpan:CYNOVG",
    "x_contributors" : [
       "Cyrill Novgorodcev <cynovg@cpan.org>"
