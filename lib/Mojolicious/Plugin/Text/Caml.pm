@@ -3,7 +3,7 @@ use Mojo::Base 'Mojolicious::Plugin';
 
 use Text::Caml;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 sub register {
     my ( $self, $app, $args ) = @_;
