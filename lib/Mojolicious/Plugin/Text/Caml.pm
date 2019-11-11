@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::Text::Caml;
+use v5.10.0;
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Text::Caml;
