@@ -43,7 +43,8 @@
       "runtime" : {
          "requires" : {
             "Mojolicious" : "6.33",
-            "Text::Caml" : "0"
+            "Text::Caml" : "0",
+            "perl" : "v5.10.0"
          }
       },
       "test" : {
