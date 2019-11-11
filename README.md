@@ -1,4 +1,4 @@
-
+[![MetaCPAN Release](https://badge.fury.io/pl/Mojolicious-Plugin-Text-Caml.svg)](https://metacpan.org/release/Mojolicious-Plugin-Text-Caml) [![Build Status](https://travis-ci.org/cynovg/p5-Mojolicious-Plugin-Text-Caml.svg?branch=master)](https://travis-ci.org/cynovg/p5-Mojolicious-Plugin-Text-Caml)
 # NAME
 
 Mojolicious::Plugin::Text::Caml - Mojolicious Plugin
