@@ -54,9 +54,14 @@
    },
    "release_status" : "unstable",
    "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/cynovg/p5-Mojolicious-Plugin-Text-Caml/issues"
+      },
+      "homepage" : "https://github.com/cynovg/p5-Mojolicious-Plugin-Text-Caml",
       "repository" : {
          "type" : "git",
-         "url" : "git://gitlab.com/cynovg/Mojolicious-Plugin-Text-Caml.git"
+         "url" : "git://github.com/cynovg/p5-Mojolicious-Plugin-Text-Caml.git",
+         "web" : "https://github.com/cynovg/p5-Mojolicious-Plugin-Text-Caml"
       }
    },
    "version" : "0.07",
